@@ -1,4 +1,3 @@
-// eslint-disable-next-line;
 import React, { Component } from 'react';
 import './App.css';
 import Sound from 'react-sound';
@@ -7,6 +6,7 @@ import TimerButton from './components/buttons/TimerButtons';
 import ControlButtons from './components/buttons/ControlButtons';
 
 class App extends React.Component {
+	//set default state of clock
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -19,7 +19,8 @@ class App extends React.Component {
 	}
 
 	handleReset() {
-		console.log('do it again');
+		//reset the timer to default settings
+		//console.log('do it again');
 		this.setState({
 			timerStarted: false,
 			timerStopped: true,
@@ -28,18 +29,22 @@ class App extends React.Component {
 		});
 		clearInterval(this.timer);
 	}
+
 	handleTimerStop() {
+		//stop the timer
 		console.log('danku thijs');
 		this.setState({ timerStarted: false, timerStopped: true, alarmStatus: Sound.status.STOPPED });
 		clearInterval(this.timer);
 	}
 
 	handleAlert() {
+		//play the alert
 		this.setState({ alarmStatus: Sound.status.PLAYING });
 		//alert('Take a break!');
 		this.handleReset();
 	}
 	handleTimerStart() {
+		//start the timer
 		console.log('het werkt!');
 		if (this.state.timerStopped) {
 			//start button only works if not counting down
@@ -74,7 +79,7 @@ class App extends React.Component {
 		}
 	}
 	handleMinTime() {
-		//substract minutes from timer
+		//subtract minutes from timer
 		if (this.state.timerStopped) {
 			this.setState({
 				minutes: this.state.minutes - 1
@@ -84,6 +89,7 @@ class App extends React.Component {
 
 	render() {
 		return (
+			//display the timer
 			<div className="container">
 				<Alert playing={this.state.alarmStatus} />
 				<div className="clock">

@@ -6,6 +6,7 @@ export default class TimerButton extends React.Component {
 	}
 	render() {
 		let TimerButton = (
+			//the buttons to start, stop and reset the timer
 			<div className="controls btn-group btn-group-toggle" data-toggle="buttons">
 				<button className="btn btn-success" onClick={() => this.props.start()}>
 					<i className="fas fa-play" />
