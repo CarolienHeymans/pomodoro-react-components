@@ -20,7 +20,7 @@ class App extends React.Component {
 
 	handleReset() {
 		//reset the timer to default settings
-		//console.log('do it again');
+
 		this.setState({
 			timerStarted: false,
 			timerStopped: true,
@@ -31,8 +31,7 @@ class App extends React.Component {
 	}
 
 	handleTimerStop() {
-		//stop the timer
-		console.log('danku thijs');
+		//stop the timer, also stop the alert
 		this.setState({ timerStarted: false, timerStopped: true, alarmStatus: Sound.status.STOPPED });
 		clearInterval(this.timer);
 	}
@@ -40,12 +39,11 @@ class App extends React.Component {
 	handleAlert() {
 		//play the alert
 		this.setState({ alarmStatus: Sound.status.PLAYING });
-		//alert('Take a break!');
 		this.handleReset();
 	}
 	handleTimerStart() {
 		//start the timer
-		console.log('het werkt!');
+		//console.log('het werkt!');
 		if (this.state.timerStopped) {
 			//start button only works if not counting down
 			this.timer = setInterval(() => {
